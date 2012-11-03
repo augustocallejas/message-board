@@ -1,0 +1,431 @@
+body
+{
+  font-family:verdana;
+  font-size:10pt;
+  background-color:#fefefe;
+}
+
+div.warning
+{
+  color:#ff0000;
+  font-weight:bold;
+}
+
+div.left
+{
+  float:left;
+  width:100%;
+}
+
+div.right
+{
+  text-align:right;
+}
+
+/* CLEAN **********************************************************************/
+
+div.clean
+{
+  font-size:8pt;
+}
+div.clean input
+{
+  font-size:8pt;
+  color:#000000;
+}
+div.clean a
+{
+  color:#0000ff;
+  text-decoration:underline;
+}
+div.clean a:hover
+{
+  color:#ff0000;
+  text-decoration:underline;
+}
+
+div.clean .submit
+{
+}
+
+/******************************************************************************/
+
+/* MENU ***********************************************************************/
+
+div.menu a
+{
+  color:#0000ff;
+}
+div.menu a:hover
+{
+  color:#ff0000;
+}
+
+/* MESSAGES *******************************************************************/
+
+table.view_messages_table
+{
+  width:100%;
+  margin-padding:0px;
+  font-family:verdana;
+  font-size:9pt;
+  border-collapse:collapse;
+}
+table.view_messages_table a
+{
+  color:#000000;
+  text-decoration:none;
+}
+table.view_messages_table a:hover
+{
+  color:#ff0000;
+  text-decoration:underline;
+}
+th.view_messages_select
+{
+  text-align:center;
+  width:5%;
+}
+td.view_messages_select
+{
+  text-align:center;
+}
+th.view_messages_user
+{
+  text-align:left;
+  width:15%;
+}
+th.view_messages_subject
+{
+  text-align:left;
+  width:60%;
+}
+th.view_messages_date
+{
+  text-align:left;
+  width:20%;
+}
+tr.view_messages_row0
+{
+  width:100%;
+  background-color:#dcdcdc;
+}
+tr.view_messages_row1
+{
+  width:100%;
+  background-color:#ededed;
+}
+td.view_messages_unread
+{
+  font-weight:bold;
+}
+
+div.view_message a
+{
+  color:#0000ff;
+  text-decoration:underline;
+}
+div.view_message a:hover
+{
+  color:#ff0000;
+  text-decoration:underline;
+}
+div.view_message input
+{
+  font-size:8pt;
+  color:#000000;
+}
+
+/* SHARES *********************************************************************/
+
+table.list_shares_table
+{
+  width:100%;
+  margin-padding:0px;
+  font-family:verdana;
+  font-size:9pt;
+  border-collapse:collapse;
+}
+table.list_shares_table a
+{
+  color:#000000;
+  text-decoration:none;
+}
+table.list_shares_table a:hover
+{
+  color:#ff0000;
+  text-decoration:underline;
+}
+tr.list_shares_share0
+{
+  width:100%;
+  background-color:#dcdcdc;
+}
+tr.list_shares_share1
+{
+  width:100%;
+  background-color:#ededed;
+}
+th.list_shares_user_hd
+{
+  width:10%;
+  overflow:hidden;
+  text-align:left;
+}
+th.list_shares_author_hd
+{
+  font-size:8pt;
+  overflow:hidden;
+  text-align:left;
+  width:25%;
+}
+th.list_shares_title_hd
+{
+  font-size:8pt;
+  overflow:hidden;
+  text-align:left;
+  width:50%;
+}
+th.list_shares_date_hd
+{
+  font-size:8pt;
+  overflow:hidden;
+  text-align:left;
+  width:10%;
+}
+th.list_shares_expired_hd
+{
+  overflow:hidden;
+  text-align:center;
+  width:5%;
+}
+td.list_shares_author0
+{
+  font-size:8pt;
+}
+td.list_shares_author1
+{
+  font-size:8pt;
+}
+td.list_shares_title0
+{
+  font-size:8pt;
+}
+td.list_shares_title1
+{
+  font-size:8pt;
+}
+td.list_shares_date0
+{
+  font-size:8pt;
+}
+td.list_shares_date1
+{
+  font-size:8pt;
+}
+td.list_shares_expired0
+{
+  text-align:center;
+}
+td.list_shares_expired1
+{
+  text-align:center;
+}
+
+/******************************************************************************/
+
+table.list_topics_table
+{
+  width:100%;
+  margin-padding:0px;
+  font-family:verdana;
+  font-size:9pt;
+  border-collapse:collapse;
+}
+table.list_topics_table a
+{
+  color:#000000;
+  text-decoration:none;
+}
+table.list_topics_table a:hover
+{
+  color:#ff0000;
+  text-decoration:underline;
+}
+tr.list_topics_thread0
+{
+  width:100%;
+  background-color:#dcdcdc;
+}
+tr.list_topics_thread1
+{
+  width:100%;
+  background-color:#ededed;
+}
+th.list_topics_author_hd
+{
+  width:10%;
+  overflow:hidden;
+  text-align:left;
+}
+th.list_topics_subject_hd
+{
+  text-align:left;
+  width:55%;
+  overflow:hidden;
+}
+th.list_topics_lastpost_hd
+{
+  font-size:8pt;
+  text-align:left;
+  width:20%;
+  overflow:hidden;
+}
+th.list_topics_lastpostauthor_hd
+{
+  text-align:left;
+  width:10%;
+  overflow:hidden;
+}
+th.list_topics_postcount_hd
+{
+  width:5%;
+  text-align:right;
+}
+td.list_topics_author0
+{
+  width:10%;
+  overflow:hidden;
+}
+td.list_topics_author1
+{
+  width:10%;
+  overflow:hidden;
+}
+td.list_topics_subject0
+{
+  width:55%;
+  overflow:hidden;
+}
+td.list_topics_subject1
+{
+  width:55%;
+  overflow:hidden;
+}
+td.list_topics_lastpost0
+{
+  width:20%;
+  font-size:8pt;
+}
+td.list_topics_lastpost1
+{
+  width:20%;
+  font-size:8pt;
+}
+td.list_topics_lastpostauthor0
+{
+  width:10%;
+}
+td.list_topics_lastpostauthor1
+{
+  width:10%;
+}
+td.list_topics_postcount0
+{
+  width:5%;
+  text-align:right;
+}
+td.list_topics_postcount1
+{
+  width:5%;
+  text-align:right;
+}
+
+table.show_topic_table
+{
+  border-collapse:collapse;
+  font-family:verdana;
+  font-size:9pt;
+  width:100%;
+}
+tr.show_topic_header
+{
+  background-color:#dcdcdc;
+  padding:2px;
+}
+td.show_topic_author
+{
+  border-color:#000000;
+  border-style:solid none solid solid;
+  border-width:1px;
+  text-align:left;
+  width:50%;
+  white-space:nowrap;
+
+}
+td.show_topic_author a
+{
+  color:#000000;
+  text-decoration:none;
+  font-weight:bold;
+}
+td.show_topic_author a:hover
+{
+  color:red;
+  text-decoration:underline;
+}
+td.show_topic_topic
+{
+  border-color:#000000;
+  border-style:solid solid solid none;
+  border-width:1px;
+  text-align:right;
+  width:50%;
+  white-space:nowrap;
+}
+td.show_topic_topic a
+{
+  color:#000000;
+  text-decoration:none;
+}
+td.show_topic_topic a:hover
+{
+  color:red;
+  text-decoration:underline;
+}
+td.show_topic_body
+{
+  float:left;
+  width:100%;
+}
+
+/* PROFILE */
+div.profile a
+{
+  color:#0000ff;
+}
+div.profile a:hover
+{
+  color:#ff0000;
+}
+
+/* USER_LIST */
+div.userlist a
+{
+  color:#0000ff;
+}
+div.userlist a:hover
+{
+  color:#ff0000;
+}
+
+
+/* LIST_USER_TOPICS */
+div.list_user_topics a
+{
+  color:#0000ff;
+}
+div.list_user_topics a:hover
+{
+  color:#ff0000;
+}

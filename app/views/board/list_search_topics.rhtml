@@ -1,0 +1,14 @@
+
+<h3>search results</h3>
+
+<div class="menu">
+<%= link_to 'back to search', :action=>'search', :id=>@user %>
+</div> <!-- "menu" -->
+<br/>
+
+<%= render(:partial=>'topics', :locals=>{:topic_pages=>@topic_pages}) %>
+
+<div class="menu">
+<%= link_to 'back to search', :action=>'search', :id=>@user %>
+</div> <!-- "menu" -->
+

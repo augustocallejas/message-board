@@ -1,0 +1,62 @@
+installation instructions
+=========================
+
+0) requirements:
+
+  mysql v5 (or postgres)
+  ruby 1.8.7
+  rails 3.0.5
+
+1) create a new database:
+
+  mysqladmin5 -u root -p create board
+
+2) create a new user:
+
+  mysql5 -u root -p
+  CREATE USER 'board'@'localhost' IDENTIFIED BY 'board';
+  GRANT ALL PRIVILEGES ON board.* to 'board'@'localhost' WITH GRANT OPTION;
+  quit
+
+3) test that your new user can connect to the new database:
+
+  mysql5 -uboard -pboard board
+  
+4) build database tables:
+
+  mysql5 -uboard -pboard board < db/schemas.sql
+
+5) manually insert the first user account (edit this file to change the user account name, password and email address):
+
+  mysql5 -uboard -pboard board < db/seed.sql
+
+6) edit the database configuration file in the rails application:
+
+  config/database.yml
+
+   edit the development and production mode sections with the database name, username and password created above in step 2
+
+7) install will_paginate (https://github.com/mislav/will_paginate/wiki) and mysql2 gems:
+
+  gem install will_paginate --pre
+  gem install mysql2
+
+8) edit the following files with the administrator email address:
+
+  app/models/board_mailer.rb
+  app/models/system_notifier.rb
+
+   and the url of the message board:
+
+  app/views/board_mailer/invite.rhtml
+  app/views/board_mailer/reset_password.rhtml
+
+   and the smtp mail server:
+
+  config/environments/production.rb
+
+10) run the server in development mode:
+
+  rails server -e development
+
+11) goto http://localhost:3000

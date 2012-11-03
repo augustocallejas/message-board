@@ -1,0 +1,28 @@
+
+<h3>invites</h3>
+
+<%= render(:partial=>'errors') %>
+
+<% if get_unissued_invites().count > 0 %>
+<div class="clean">
+<%= form_tag 'send_invite' do -%>
+send an invite to email: <%= text_field_tag 'email', 
+                                            {}, 
+                                            {:size=>50,:max_size=>100} %>
+<%= submit_tag 'send' %>
+<% end -%>
+</div>
+<% else %>
+no invites!
+<% end %>
+
+<h3>pending</h3>
+
+<div class="clean">
+<ul>
+<% for invite in @issued do -%>
+  <li><%= invite.email %> (<%= link_to 'uninvite', :action=>'uninvite',
+                                                   :id=>invite %>)</li>
+<% end -%>
+</ul>
+</div>

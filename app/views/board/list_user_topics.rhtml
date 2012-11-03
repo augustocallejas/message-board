@@ -1,0 +1,15 @@
+
+<h3><%= @user.username %>'s threads</h3>
+
+<div class="list_user_topics">
+<%= link_to 'back to profile', :action=>'view_profile', :id=>@user %>
+</div> <!-- "list_user_topics" -->
+<br/>
+
+<%= render(:partial=>'topics') %>
+<br/>
+
+<div class="list_user_topics">
+<%= link_to 'back to profile', :action=>'view_profile', :id=>@user %>
+</div> <!-- "list_user_topics" -->
+

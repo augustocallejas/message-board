@@ -1,0 +1,55 @@
+<%= javascript_include_tag :defaults %>
+
+<div class="menu">
+<h3>my inbox (<b><%= link_to 'my outbox', :action=>'view_outbox' %></b>)</h3>
+</div>
+<br/>
+
+<%= form_tag 'delete_inbox_messages' do -%>
+<div id="view_messages_table_div">
+<table class="view_messages_table">
+<tr>
+  <th class="view_messages_select">select</th>
+  <th class="view_messages_user">from</th>
+  <th class="view_messages_subject">subject</th>
+  <th class="view_messages_date">received</th>
+</tr>
+<% r=1 %>
+<% for message in @messages do -%>
+<tr class="view_messages_row<%=r%>">
+  <td class="view_messages_select">
+  <%= check_box('message', message.id) %>
+  </td>
+  <td>
+  <%= link_to h(message.sender.username),
+              :action=>'view_profile', 
+              :id=>message.sender %>
+  </td>
+  <td <%= 'class="view_messages_unread"' if not message.recipient_viewed %>>
+  <%= link_to h(message.subject), 
+              :action=>'view_received_message', 
+              :id=>message %>
+  </td>
+  <td>
+  <%= message.created_at.strftime("%b %d, %Y %I:%M %p") %>
+  </td>
+</tr> <!-- "view_messages_row" -->
+<% r=1-r %>
+<% end -%>
+</table>
+</div>
+<br/>
+<div class="clean">
+<%= button_to_function 'select all',
+    update_page {|pg| pg.select('#view_messages_table_div input').each{|x| x.checked=true}} %>
+<%= button_to_function 'deselect all',
+    update_page {|pg| pg.select('#view_messages_table_div input').each{|x| x.checked=false}} %>
+<br/>
+<br/>
+<%= submit_tag 'delete selected messages' %>
+</div>
+<% end -%>
+<br/>
+<div class="menu">
+<%= will_paginate @messages, :param_name=>:p,:prev_label=>'prev',:next_label=>'next' %>
+</div>

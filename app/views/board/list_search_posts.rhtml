@@ -1,0 +1,19 @@
+
+<h3>search results</h3>
+
+<div class="menu">
+<%= link_to 'back to search', :action=>'search', :id=>@user %>
+</div> <!-- "menu" -->
+<br/>
+
+<% @show_topic_subject = true %>
+<%= render(:partial=>'posts', :object=>@posts) %>
+
+<div class="menu">
+<%= pagination_links(@post_pages) if not @post_pages.nil? %>
+</div>
+
+<div class="menu">
+<%= link_to 'back to search', :action=>'search', :id=>@user %>
+</div> <!-- "menu" -->
+

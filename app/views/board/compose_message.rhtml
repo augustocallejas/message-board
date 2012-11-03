@@ -1,0 +1,36 @@
+
+<h3>compose message</h3>
+
+<%= render(:partial=>'errors') %>
+
+<%= form_tag :action=>'send_message' do -%>
+<div class="view_message">
+
+<% if not @reply_to.nil? %>
+<%= hidden_field_tag 'reply_to', @reply_to.id %>
+<% end %>
+
+<% if not @recipient.nil? %>
+<%= hidden_field_tag 'id', @recipient.id %>
+<b>to:</b> <%= link_to h(@recipient.username), 
+                       :action=>'view_profile',
+                       :id=>@recipient %>
+<% else %>
+<b>to:</b> <%= text_field_tag 'username', '',
+                              {:size=>40,:maxlength=>100} %>
+<% end %>
+<br/>
+<br/>
+
+<b>subject:</b> <%= text_field :message, 'subject', 
+                               {:size=>40,:maxlength=>100} %>
+<br/>
+<br/>
+
+<b>message:</b>
+<br/>
+<%= text_area :message, 'content', {:rows=>10,:cols=>80} %>
+<br/>
+<%= submit_tag 'send message' %>
+</div> <!-- "view_message" -->
+<% end -%>

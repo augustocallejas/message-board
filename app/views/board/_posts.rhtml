@@ -1,0 +1,31 @@
+<table class="show_topic_table">
+<% for post in posts do -%>
+<tr class="show_topic_header">
+  <td class="show_topic_author">
+  <%= link_to post.user.username, :action=>'view_profile',
+                                  :id=>post.user %>
+  (<%= post.created_at.strftime("%a %B %d, %Y %I:%M %p") %>):
+  </td> <!-- "show_topic_author" -->
+  <% if @show_topic_subject %>
+  <td class="show_topic_topic">
+  <%= link_to "#{h(post.topic.title)}", 
+              :action=>'show_topic', 
+              :id=>post.topic %>
+  </td> <!-- "show_topic_topic" -->
+  <% else %>
+  <td class="show_topic_topic">&nbsp;</td>
+  <% end %>
+</tr> <!-- "show_topic_header" -->
+<tr>
+  <td class="show_topic_body">
+  <% if user_disable_images() %>
+  <%= my_auto_link(newline_to_br(h(post.content))) %>
+  <% else %>
+  <%= my_auto_link(newline_to_br(auto_image(h(post.content)))) %>
+  <% end %>
+  <br/>
+  <br/>
+  </td> <!-- "show_topic_body" -->
+</tr>
+<% end -%> 
+</table> <!-- "show_topic_table" -->

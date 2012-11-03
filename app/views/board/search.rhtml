@@ -1,0 +1,14 @@
+
+<h3>search</h3>
+
+<div class="clean">
+<%= form_tag 'perform_search' do -%>
+
+<%= text_field_tag 'q', {}, {:size=>40,:maxlength=>40} %>
+over: <%= select_tag 'type', options_for_select(@options) %>
+<br/>
+<br/>
+<%= submit_tag 'go' %>
+<% end -%>
+</div>
+

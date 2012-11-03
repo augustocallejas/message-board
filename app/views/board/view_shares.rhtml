@@ -1,0 +1,10 @@
+
+<h3><% if @user %><%= "#{@user.username}'s " %><% else %>all <% end %>shares</h3>
+
+<div class="menu">
+<%= link_to 'submit a share', :action=>'add_share' %>
+<br/>
+<br/>
+</div>
+
+<%= render(:partial=>'shares') %>

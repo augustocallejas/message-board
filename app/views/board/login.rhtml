@@ -1,0 +1,31 @@
+<!-- <%= stylesheet_link_tag 'board' %> -->
+<link href="/stylesheets/board.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+<div class="right">
+<div class="clean">
+<%= form_tag 'authenticate' do -%>
+  user: <%= text_field(:user, :username) %>
+  pass: <%= password_field(:user, :password) %>
+  <%= submit_tag 'log in' %>
+<% end -%>
+<br/>
+<%= link_to 'forgot password?', :action=>'request_password_reset' %>
+</div>
+</div>
+
+<div class="warning">&nbsp;<%= params[:message] %></div>
+<br/>
+<div class="clean">
+<img src="/images/lock.png">
+invite only.<br/>
+<br/>
+<% count = User.find_recent_count %>
+<%= count %> active <%= count == 1 ? 'user' : 'users' %>.<br/>
+</div>
+
+<!--
+<center>
+<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/nAdaQhitdKg&hl=en_US&fs=1&&autoplay=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/nAdaQhitdKg&hl=en_US&fs=1&&autoplay=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+</center>
+-->

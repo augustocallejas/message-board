@@ -1,0 +1,73 @@
+<h3>profile: <%= @user.username %></h3>
+
+<div class="profile">
+<% if @user.photourl.length > 0 %>
+<% if user_disable_images() %>
+photo: <a href="<%= @user.photourl %>"><%= h(@user.photourl) %></a>
+<% else %>
+<%= image_tag(@user.photourl, {:alt=>"[#{@user.username}'s photo]"}) %>
+<% end %>
+<% else %>
+photo:
+<% end %>
+<br/>
+<br/>
+
+<% if @user.url.length > 0 %>
+homepage: <a target="_new" href="<%= @user.url %>"><%= @user.url %></a>
+<% else %>
+homepage:
+<% end %>
+<br/>
+<br/>
+
+<% if @user.im_username.length > 0 %>
+<%= Improtocol.lookup(@user.im_protocol).name %>: <%= h(@user.im_username) %>
+<br/>
+<br/>
+<% end %>
+
+<% if @user.location.length > 0 %>
+location: <%= h(@user.location) %>
+<% else %>
+location:
+<% end %>
+<br/>
+<br/>
+
+<% if not @user.invited_by.nil? %>
+invited by: <%= link_to "#{h(@user.invited_by.username)}", 
+                        :action=>'view_profile', 
+                        :id=>@user.invited_by.id %>
+<br/>
+<br/>
+<% end %>
+
+<%= link_to "view #{@user.username}'s shares", :action=>'view_shares', :id=>@user %>
+<br/>
+<br/>
+
+<%= link_to "total threads: #{@user.topics.size}",
+            :action=>'list_user_topics', :id=>@user %>
+<br/>
+<br/>
+<%= link_to "total posts: #{@user.posts.size}",
+            :action=>'list_user_posts', :id=>@user %>
+<br/>
+<br/>
+
+<%= link_to 'send private message', :action=>'compose_message', :id=>@user %>
+<br/>
+<br/>
+
+<% if @user.posts.size > 0 %>
+last post: <%= @user.last_post.created_at.strftime("%a %B %d, %Y %I:%M %p") %>
+(<%= time_ago_in_words(@user.last_post.created_at, true) %> ago)
+<br/>
+<br/>
+<% end %>
+
+user since: <%= @user.created_at.strftime("%a %B %d, %Y %I:%M %p") %>
+(<%= time_ago_in_words(@user.created_at, true) %> ago)
+
+</div> <!-- "profile" -->

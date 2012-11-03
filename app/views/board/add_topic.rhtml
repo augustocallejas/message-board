@@ -1,0 +1,25 @@
+<h3>create thread</h3>
+
+<%= render(:partial=>'errors') %>
+
+<div class="clean">
+<%= form_tag :action=>'create_topic' do -%>
+<div class="left">
+subject:<br/>
+<%= text_field 'topic', 'title', {:size=>40,:max_length=>Topic.max_title_length} %>
+</div>
+<div class="left">
+body:<br/>
+<%= text_area 'post', 'content', {:rows=>10,:cols=>80} %><br/>
+</div>
+
+(<b>web urls and image urls are automatically converted into html</b>)
+<br/>
+
+<%= submit_tag 'post thread' %>
+<% end -%>
+</div>
+
+<div class="menu">
+<%= link_to 'return to threads', :action=>'list_topics' %>
+</div>

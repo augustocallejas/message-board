@@ -1,0 +1,14 @@
+
+<h3>user list</h3>
+
+<div class="userlist">
+
+<ul>
+<% for user in @users do -%>
+<li><%= link_to "#{h(user.username)}", :action=>'view_profile', :id=>user %> (<a target="new" href="http://maps.google.com/?q=<%= h(user.location) %>"><%= h(user.location) %></a>)</li>
+<% end -%>
+</ul>
+
+<%= will_paginate @users, :param_name=>:p,:prev_label=>'prev',:next_label=>'next' %>
+
+</div>

@@ -1,0 +1,35 @@
+<table class="list_topics_table">
+<tr>
+  <th class="list_topics_author_hd">username</th>
+  <th class="list_topics_subject_hd">subject</th>
+  <th class="list_topics_lastpost_hd">last post</th>
+  <th class="list_topics_lastpostauthor_hd">username</th>
+  <th class="list_topics_postcount_hd">posts</th>
+</tr>
+<% r=1 %>
+<% for topic in topics do -%>
+<tr class="list_topics_thread<%=r%>">
+  <td class="list_topics_author<%=r%>">
+  <%= link_to topic.user.username, :action=>'view_profile', :id=>topic.user %>
+  </td>
+  <td class="list_topics_subject<%=r%>">
+  <%= link_to h(topic.title), :action=>"show_topic", :id=>topic %>
+  </td>
+  <td class="list_topics_lastpost<%=r%>">
+  <%= time_ago_in_words(topic.last_post_time, true) %>
+  </td>
+  <td class="list_topics_lastpostauthor<%=r%>">
+  <%= link_to topic.last_post_username, :action=>'view_profile', 
+                                        :id=>topic.last_post_userid %>
+  </td>
+  <td class="list_topics_postcount<%=r%>">
+  <%= topic.posts.count %>
+  </td>
+</tr> <!-- "list_topics_thread" -->
+<% r=1-r %>
+<% end -%>
+</table> <!-- "list_topic_tables" -->
+<br/>
+<div class="menu">
+<%= will_paginate topics, :param_name=>:p,:prev_label=>'prev',:next_label=>'next' %>
+</div> <!-- "menu" -->

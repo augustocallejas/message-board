@@ -1,0 +1,26 @@
+
+<h3>edit options</h3>
+
+<%= render(:partial=>'errors') %>
+
+<div class="clean">
+<%= form_tag :action=>'update_options' do -%>
+  disable images (<b>replaces images with links</b>):
+  <br/>
+  <%= check_box 'user', 'disable_images' %>
+  <br/>
+  <br/>
+  disable <b>bold</b> on new message(s):
+  <br/>
+  <%= check_box 'user', 'disable_unread_messages' %>
+  <br/>
+  <br/>
+
+  favorite color (<b>for password reset</b>):
+  <br/>
+  <%= text_field 'user', 'secret_word', :size=>50, :max_size=>50 %>
+  <br/>
+  <br/>
+  <%= submit_tag 'update', {:class=>'submit'} %>
+<% end -%>
+</div>

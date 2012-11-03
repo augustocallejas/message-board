@@ -1,0 +1,17 @@
+
+<h3><%= @user.username %>'s posts</h3>
+
+<div class="menu">
+<%= link_to 'back to profile', :action=>'view_profile', :id=>@user %>
+</div> <!-- "menu" -->
+<br/>
+
+<% @show_topic_subject = true %>
+<%= render(:partial=>'posts', :object=>@posts) %>
+
+<div class="menu">
+<%= will_paginate @posts, :param_name=>:p, :previous_label=>'prev', :next_label=>'next' %>
+<br/>
+<br/>
+<%= link_to 'back to profile', :action=>'view_profile', :id=>@user %>
+</div> <!-- "menu" -->

@@ -1,0 +1,26 @@
+
+<h3>create share</h3>
+
+<%= render(:partial=>'errors') %>
+
+<div class="clean">
+<%= form_tag :action=>'create_share' do -%>
+<div class="left">
+author:
+<br/>
+<%= text_field 'share', 'author', {:size=>40,:max_length=>55} %>
+<br/>
+<br/>
+title:
+<br/>
+<%= text_field 'share', 'title', {:size=>100,:max_length=>255} %>
+<br/>
+<br/>
+url (i.e. <b>http://www.google.com</b>):
+<br/>
+<%= text_field 'share', 'url', {:size=>100,:max_length=>255} %>
+<br/>
+<br/>
+
+<%= submit_tag 'add share' %>
+<% end -%>

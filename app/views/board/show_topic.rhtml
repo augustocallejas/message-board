@@ -1,0 +1,23 @@
+
+<h3><%= h(@topic.title) %></h3>
+
+<%= render(:partial=>'errors') %>
+
+<%= render(:partial=>'posts', :object=>@topic.posts) %>
+
+<div class="clean">
+<%= form_tag :action=>'create_post', :id=>@topic do -%>
+reply:
+<br/>
+<%= text_area 'post', 'content', {:rows=>10,:cols=>80} %><br/>
+
+(<b>web urls and image urls are automatically converted into html</b>)
+<br/>
+
+<%= submit_tag 'post reply' %>
+<% end -%>
+</div>
+
+<div class="menu">
+<%= link_to 'return to threads', :action=>'list_topics' %>
+</div>

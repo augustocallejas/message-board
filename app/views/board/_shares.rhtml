@@ -1,0 +1,35 @@
+<table class="list_shares_table">
+<tr>
+  <th class="list_shares_user_hd">username</th>
+  <th class="list_shares_author_hd">author</th>
+  <th class="list_shares_title_hd">title</th>
+  <th class="list_shares_date_hd">uploaded</th>
+  <th class="list_shares_expired_hd">expired</th>
+</tr>
+<% r=1 %>
+<% for share in @shares do -%>
+<tr class="list_shares_share<%=r%>">
+  <td class="list_shares_user<%=r%>">
+  <%= link_to share.user.username, :action=>'view_profile', :id=>share.user %>
+  </td>
+  <td class="list_shares_author<%=r%>">
+  <%= h(share.author) %>
+  </td>
+  <td class="list_shares_title<%=r%>">
+  <a target="_new" href="<%= share.url %>"><%= h(share.title) %></a>
+  </td>
+  <td class="list_shares_date<%=r%>">
+  <%= time_ago_in_words(share.created_at, true) %>
+  </td>
+  <td class="list_shares_expired<%=r%>">
+  <!--...-->
+  </td>
+<tr>
+<% r=1-r %>
+<% end -%>
+</table>
+<br/>
+
+<div class="menu">
+<%= will_paginate shares, :param_name=>:p,:prev_label=>'prev',:next_label=>'next' if not shares.nil? %>
+</div> <!-- "menu" -->

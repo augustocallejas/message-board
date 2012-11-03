@@ -1,0 +1,43 @@
+<!-- <%= stylesheet_link_tag 'board' %> -->
+<link href="/stylesheets/board.css" media="screen" rel="stylesheet" type="text/css" />
+
+<% if flash[:notice] %>
+<div class="warning"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="right">
+<div class="clean">
+<%= link_to "log out #{session[:user_name]}", :action=>'logout' %>
+</div>
+</div>
+<br/>
+
+<div class="menu">
+<% message_count = get_unread_message_count() %>
+<% disable_unread_messages = user_disable_unread_messages() %>
+<%= link_to "#{User.find_recent_count()} active user(s)",
+            :action=>'show_active_users' %>
+<%= "<b>" if message_count > 0 and not disable_unread_messages %>
+<%= link_to "#{message_count} message(s)", :action=>'view_inbox' %>
+<%= "</b>" if message_count > 0 and not disable_unread_messages %>
+<%= link_to 'send message', :action=>'compose_message' %>
+<b><%= link_to 'user list', :action=>'list_users' %></b>
+
+<br/>
+<br/>
+<%= link_to "list threads", :action=>'list_topics' %>
+<%= link_to 'create thread', :action=>'add_topic' %>
+<!--search-->
+<!--<%= link_to 'search', :action=>'search' %>-->
+<%= link_to 'view shares', :action=>'view_shares' %>
+<%= link_to 'my profile', :action=>'view_profile',:id=>session[:user_id]%>
+<%= link_to 'edit profile', :action=>'edit_profile' %>
+<%= link_to 'edit options', :action=>'edit_options' %>
+<%= link_to 'change password', :action=>'change_password' %>
+<% count = get_unissued_invites().count %>
+<% if count > 0 %><b><% end -%>
+<%= link_to "#{count} invite(s)", :action=>'list_invites' %>
+<% if count > 0 %></b><% end -%>
+</div>
+
+<%= yield %>

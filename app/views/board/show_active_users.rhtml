@@ -1,0 +1,14 @@
+
+<h3>active users</h3>
+
+<div class="clean">
+<p>
+active in the last <%= User::RECENT_ACTIVITY_MIN %> minutes:
+</p>
+
+<p>
+<% for user in @active_users do -%>
+<%= link_to "#{user.username}", :action=>'view_profile', :id=>user %>
+<% end -%>
+</p>
+</div>

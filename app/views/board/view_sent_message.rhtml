@@ -1,0 +1,28 @@
+
+<div class="menu">
+<h3>sent message (<b><%= link_to 'my outbox', :action=>'view_outbox' %></b>)</h3>
+
+<div class="view_message">
+
+<b>to:</b> <%= link_to h(@message.recipient.username),
+                       :action=>'view_profile',
+                       :id=>@message.recipient %>
+<br/>
+
+<b>date:</b> <%= @message.created_at.strftime("%b %d, %Y %I:%M %p %Z") %>
+<br/>
+
+
+<b>subject:</b> <%= h(@message.subject) %>
+<br/>
+
+<b>message:</b>
+<p>
+<% if user_disable_images() %>
+<%= my_auto_link(newline_to_br(h(@message.content))) %>
+<% else %>
+<%= my_auto_link(newline_to_br(auto_image(h(@message.content)))) %>
+<% end %>
+</p>
+
+</div> <!-- "view_message" -->

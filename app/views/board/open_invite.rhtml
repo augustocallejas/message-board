@@ -1,0 +1,48 @@
+<!-- <%= stylesheet_link_tag 'board' %> -->
+<link href="/stylesheets/board.css" media="screen" rel="stylesheet" type="text/css" />
+
+<h3>new account</h3>
+
+<div class="clean">
+
+<% if @invite.nil? %>
+
+could not find your invite.
+
+<% else %>
+
+this invite has been sent to <b><%= @invite.email %></b>.<br/>
+this email address will be used for resetting your account password
+and will never be displayed.<br/>
+
+<p>
+create an account here.<br/>
+usernames can only create alphanumeric characters, ".", "_", "-" and spaces.
+</p>
+
+<p>
+favorite color is for verifying password reset requests.
+</p>
+
+<%= render(:partial=>'errors') %>
+<br/>
+
+<%= form_tag :action=>'create_account' do -%>
+<%= hidden_field_tag 'invite', @invite.invitekey %>
+username: <%= text_field_tag 'username',
+                             {},
+                             {:size=>20,:max_size=>20} %><br/>
+<br/>
+new password: <%= password_field_tag 'password' %><br/>
+<br/>
+confirm password: <%= password_field_tag 'password_confirm' %><br/>
+<br/>
+favorite color: <%= text_field_tag 'secret_word' %><br/>
+<br/>
+
+<%= submit_tag 'create account'%>
+<% end -%>
+
+<% end %>
+
+</div>

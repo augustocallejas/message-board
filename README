@@ -1,0 +1,15 @@
+messageboard
+============
+
+an aesthetically clean messageboard written in rails.
+
+features:
+
+* user accounts with simple profiles
+* threaded discussions
+* private messages between users
+* automatic link and image url detection
+* recently active and full user list
+* invite only feature
+
+see "doc/screenshots" for screenshots.
